@@ -1,0 +1,25 @@
+<body>
+    <header>
+        <div class="smart-home-title">💬 Helpdesk Chat</div>
+        <div class="date-time" id="liveDateTime">Monday, March 8, 2026, 14:30:00</div>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div class="message-list">
+
+                @for (item of chatHistory; track item.id) {
+                    <div class="message" [ngClass]="item.sender === 'Support' ? 'helpdesk-message' : 'customer-message'">
+                        {{ item.message }}
+                    </div>
+                }
+               
+            </div>
+            <!-- Message input area (static – no JS) -->
+            <div class="message-input-area">
+                <input type="text" placeholder="Type your message here..." >
+                <button>Send</button>
+            </div>
+        </div>
+    </main>
+</body>
