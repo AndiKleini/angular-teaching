@@ -1,14 +1,14 @@
 <main>
     <h2 style="margin-bottom: 1rem; color: #2c3e50;">Your Rooms</h2>
     <div class="room-grid">
-        
-        @for(item of rooms; track $index) {
+
+        @for(room of rooms; track $index) {
             <div class="room-tile">
-                <p class="room-tile-title">{{item.name}}</p>
-                <h3>{{item.name}}</h3>
-                <p class="room-tile-devices">{{ item.devices | listDevices }}</p>
+                <p class="room-tile-title">{{room.name}}</p>
+                <h3>{{room.name}}</h3>
+                <p>{{room.devices | listDevices }}</p>
             </div>
         }
-
+        
     </div>
 </main>

@@ -1,3 +1,7 @@
+# 2.1 Session: Hard coded html for home component
+
+This text contains the hard coded html data that can be used by the [home component](../src/app/home/home.html). Remove the @for block in [home component](../src/app/home/home.html) and copy the html below to the template in [home component](../src/app/home/home.html) instead. Now you are prepared for session 2.1,  which teaches the usage of @for.
+
 <!-- Kitchen -->
 <div class="room-tile">
     <img src="https://source.unsplash.com/featured/300x200?kitchen" alt="{{rooms[1].name}}" loading="lazy">

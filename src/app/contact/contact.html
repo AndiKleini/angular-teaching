@@ -17,8 +17,8 @@
             </div>
             <!-- Message input area (static – no JS) -->
             <div class="message-input-area">
-                <input type="text" placeholder="Type your message here..." >
-                <button>Send</button>
+                <input type="text" placeholder="Type your message here..." #messageInput>
+                <button (click)="submitMessage(messageInput.value)">Send</button>
             </div>
         </div>
     </main>

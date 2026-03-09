@@ -19,7 +19,9 @@ export class Contact {
       this.cdr.markForCheck();
     }
   }
-  public submitMessage(message: string): void {
+  public submitMessage(message: string): void { 
+    console.log('Submitting message:', message);
+
     this.chatSrv.submitMessage(message);
   }
 }

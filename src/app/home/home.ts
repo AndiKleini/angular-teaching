@@ -5,14 +5,15 @@ import { ListDevicesPipe } from '../pipes/list-devices';
 
 @Component({
   selector: 'app-home',
-  imports: [ ListDevicesPipe ],
+  imports: [ListDevicesPipe],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-  public rooms: Room[] = [];
-  constructor(buildingSrv: Building) {
-    this.rooms = buildingSrv.getRooms();
-    console.log('Home component initialized with rooms:', this.rooms);
+  rooms: Room[];
+
+  constructor(private building: Building) {
+    this.rooms = this.building.getRooms();
+    console.log(this.rooms);
   }
 }

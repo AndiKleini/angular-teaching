@@ -9,8 +9,8 @@
     this.room = this.buildingSrv.getRooms().find(r => r.id === this.roomId)!;
   }
 
-  Template of room-tile component
-  <div class="room-tile">
+Template of room-tile component
+<div class="room-tile">
     <p class="room-tile-title">{{room.name}}</p>
     <h3>{{room.name}}</h3>
     <p class="room-tile-devices">{{ room.devices | listDevices }}</p>
