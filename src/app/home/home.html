@@ -3,12 +3,8 @@
     <div class="room-grid">
 
         @for(room of rooms; track $index) {
-            <div class="room-tile">
-                <p class="room-tile-title">{{room.name}}</p>
-                <h3>{{room.name}}</h3>
-                <p>{{room.devices | listDevices }}</p>
-            </div>
+            <app-room-tile [roomId]="room.id"></app-room-tile>
         }
-        
+
     </div>
 </main>
