@@ -2,4 +2,5 @@
     <p class="room-tile-title">{{room.name}}</p>
     <h3>{{room.name}}</h3>
     <p>{{room.devices | listDevices }}</p>
+    <button class="alarm-btn" (click)="toggleAlarm.emit(room.id)">TOGGLE</button>
 </div>

@@ -26,6 +26,7 @@ The goal is to become confident with the angular framework.
 ### Sessions 2
 
 **Session 2.1 (home component refactoring):**
+
 - Inject service building in home controller
 - Bind the array of rooms emitted by building.getRooms() into the template of the home component
     - Start with the first room on the top
@@ -39,7 +40,13 @@ The goal is to become confident with the angular framework.
 
 **Preparations**
 - Remove the component [room-tile](../src/app/room-tile/) and all it'S dependents. The html template of [home-component](../src/app/home/home.html) can be populated with the html template code [here](..)
+- Remove javascript method **toggleAlram(roomId: number)a: void** from [home-component](../src/app/home/home.ts)
 
+**Session 3.1 (introduce room-tile component)**
 
 - create a room-tile component that gets the roomId from the template
 - activate alarm for the whole building by a button click on the room tile use Output capabilities.
+
+**Session 3.2 (create alarm buttons in room tiles)**
+
+- create an activate/deactivate alarm button in the room-tile. Whenever this button is clicked the alarm is toggled. The state needs to be propagated to the main component which already has this alarm toggle capabilities.

@@ -224,3 +224,74 @@ footer {
 main {
     padding: 2rem;
 }
+
+.alarm-block {
+    background: #1a1a2e;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+}
+
+.alarm-light {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #1a3a1a;
+    margin: 0 auto 20px;
+    transition: all 0.4s ease;
+}
+
+.alarm-light-active {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #dc0b0b;
+    margin: 0 auto 20px;
+    transition: all 0.4s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,0,0,0.8); }
+    50%       { box-shadow: 0 0 50px rgba(255,0,0,1); }
+}
+
+.alarm-status {
+    color: #336633;
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.alarm-status-active {
+    color: #ff4444;
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px red;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
+}
+
+.alarm-btn {
+    background: #0f0f1e;
+    color: #00aaff;
+    border: 2px solid #00aaff;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alarm-btn:hover {
+    background: rgba(0,170,255,0.1);
+    box-shadow: 0 0 15px rgba(0,170,255,0.4);
+}
