@@ -35,6 +35,11 @@ The goal is to become confident with the angular framework.
 **Session 2.2 (fix chatbot service):**
 - fix the broken chatbot service by establishment of the data-binding in contact component.
 
-## Session 3 Parent -> Child
+## Session 3 Input and Output 
+
+**Preparations**
+- Remove the component [room-tile](../src/app/room-tile/) and all it'S dependents. The html template of [home-component](../src/app/home/home.html) can be populated with the html template code [here](..)
+
+
 - create a room-tile component that gets the roomId from the template
 - activate alarm for the whole building by a button click on the room tile use Output capabilities.
