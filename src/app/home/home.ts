@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Building } from '../services/building';
 import { Room } from '../entities/room';
 import { ListDevicesPipe } from '../pipes/list-devices';
 import { RoomTile } from "../room-tile/room-tile";
 import { NgClass } from "@angular/common";
+import { sign } from 'node:crypto';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,11 @@ export class Home {
 
   rooms: Room[];
   isAlarmActive: boolean = false;
+  public baseTemperature = signal<number>(0);
 
   constructor(private buildingSrv: Building) {
     this.rooms = this.buildingSrv.getRooms();
-    console.log(this.rooms);
+    this.baseTemperature = this.buildingSrv.baseTemperature;
   }
 
   public toggleAlarmGlobally() {
@@ -28,5 +30,9 @@ export class Home {
   public toggleAlarm(roomId: number): void {
     console.log(`Alarm toggled for room with ID: ${roomId}`);
     this.toggleAlarmGlobally();
+  }
+
+  public changeTemperature(diff: number) {
+    this.baseTemperature.update(t => t + diff);
   }
 }

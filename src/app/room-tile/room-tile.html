@@ -3,4 +3,18 @@
     <h3>{{room.name}}</h3>
     <p>{{room.devices | listDevices }}</p>
     <button class="alarm-btn" (click)="toggleAlarm.emit(room.id)">TOGGLE</button>
+    <div class="thermostat-control">
+        <div class="dial">
+            <div class="inner-circle">
+                <span id="current-temp">{{temperature()}}</span>
+                <div id="status" class="heating">Heating</div>
+                <div class="target-control">
+                    <button (click)="changeTemperature(-0.5)">-</button>
+                    <span id="target-temp">{{baseTemperature()}}</span>
+                    <button (click)="changeTemperature(0.5)">+</button>
+                </div>
+                <span>Divergence: {{divergence()}}</span>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Room } from '../entities/room';
 
 @Injectable({
@@ -12,4 +12,6 @@ export class Building {
       { id: 3, name: 'Bedroom', devices: ['Bed', 'Lamp', 'Alarm Clock'] },
     ];
   }
+
+  public baseTemperature = signal<number>(23.0);
 }

@@ -295,3 +295,37 @@ main {
     background: rgba(0,170,255,0.1);
     box-shadow: 0 0 15px rgba(0,170,255,0.4);
 }
+
+.thermostat-control {
+  width: 300px;
+  height: 300px;
+  text-align: centers;
+  background: #2c3e50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.dial {
+  width: 260px;
+  height: 260px;
+  background: #ecf0f1;
+  border-radius: 50%;
+  border: 4px solid #bdc3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-circle {
+  text-align: center;
+  color: #2c3e50;
+}
+
+#current-temp { font-size: 3rem; font-weight: bold; display: block; }
+#status { font-size: 0.8rem; font-weight: bold; margin-top: -5px; }
+.heating { color: #e67e22; }
+.target-control { margin-top: 15px; display: flex; gap: 10px; align-items: center; }
+button { border: none; background: #34495e; color: white; border-radius: 5px; padding: 5px 10px; cursor: pointer; }
