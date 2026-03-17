@@ -6,11 +6,11 @@
     <div class="thermostat-control">
         <div class="dial">
             <div class="inner-circle">
-                <span id="current-temp">{{temperature()}}</span>
+                <span id="current-temp">{{baseTemperature()}}</span>
                 <div id="status" class="heating">Heating</div>
                 <div class="target-control">
                     <button (click)="changeTemperature(-0.5)">-</button>
-                    <span id="target-temp">{{baseTemperature()}}</span>
+                    <span id="target-temp">{{temperature()}}</span>
                     <button (click)="changeTemperature(0.5)">+</button>
                 </div>
                 <span>Divergence: {{divergence()}}</span>

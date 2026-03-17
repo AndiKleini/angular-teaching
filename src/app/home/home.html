@@ -1,19 +1,21 @@
 <main>
     <h1 style="margin-bottom: 1rem; color: #2c3e50;">Welcome to your Smart Home Dashboard</h1>
     <h2 style="margin-bottom: 1rem; color: #2c3e50;">Alarm</h2>
-    <div class="alarm-block">
-        <div [ngClass]="isAlarmActive ? 'alarm-light-active' : 'alarm-light'"></div>
-        <div [ngClass]="isAlarmActive ? 'alarm-status-active' : 'alarm-status'">INACTIVE</div>
-        <button class="alarm-btn" (click)="toggleAlarmGlobally()">TOGGLE</button>
-    </div>
-    <div class="thermostat-control">
-        <div class="dial">
-            <div class="inner-circle">
-                <div id="status" class="heating">Heating</div>
-                <div class="target-control">
-                    <button (click)="changeTemperature(-0.5)">-</button>
-                    <span id="target-temp">{{baseTemperature()}}</span>
-                    <button (click)="changeTemperature(0.5)">+</button>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="alarm-block">
+            <div [ngClass]="isAlarmActive ? 'alarm-light-active' : 'alarm-light'"></div>
+            <div [ngClass]="isAlarmActive ? 'alarm-status-active' : 'alarm-status'">INACTIVE</div>
+            <button class="alarm-btn" (click)="toggleAlarmGlobally()">TOGGLE</button>
+        </div>
+        <div class="thermostat-control">
+            <div class="dial">
+                <div class="inner-circle">
+                    <div id="status" class="heating">Heating</div>
+                    <div class="target-control">
+                        <button (click)="changeTemperature(-0.5)">-</button>
+                        <span id="target-temp">{{baseTemperature()}}</span>
+                        <button (click)="changeTemperature(0.5)">+</button>
+                    </div>
                 </div>
             </div>
         </div>

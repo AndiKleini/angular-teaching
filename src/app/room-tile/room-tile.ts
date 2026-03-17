@@ -20,7 +20,7 @@ export class RoomTile implements OnInit {
     public temperature = signal<number>(0);
     public divergence = computed(() => this.temperature() - this.baseTemperature());
     public baseTemperature = signal<number>(0);
-
+  
     constructor(private buildingSrv: Building) { }
     
     ngOnInit(): void {
