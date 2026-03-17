@@ -7,13 +7,13 @@
             <div [ngClass]="isAlarmActive ? 'alarm-status-active' : 'alarm-status'">INACTIVE</div>
             <button class="alarm-btn" (click)="toggleAlarmGlobally()">TOGGLE</button>
         </div>
-        <div class="thermostat-control">
+       <div class="thermostat-control">
             <div class="dial">
                 <div class="inner-circle">
                     <div id="status" class="heating">Heating</div>
                     <div class="target-control">
                         <button (click)="changeTemperature(-0.5)">-</button>
-                        <span id="target-temp">{{baseTemperature()}}</span>
+                        <span id="target-temp">23</span>
                         <button (click)="changeTemperature(0.5)">+</button>
                     </div>
                 </div>

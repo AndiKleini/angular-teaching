@@ -16,8 +16,9 @@ export class Home {
 
   rooms: Room[];
   isAlarmActive: boolean = false;
-  public baseTemperature = signal<number>(0);
 
+  public baseTemperature = signal(0);
+  
   constructor(private buildingSrv: Building) {
     this.rooms = this.buildingSrv.getRooms();
     this.baseTemperature = this.buildingSrv.baseTemperature;
@@ -28,7 +29,6 @@ export class Home {
   }
 
   public toggleAlarm(roomId: number): void {
-    console.log(`Alarm toggled for room with ID: ${roomId}`);
     this.toggleAlarmGlobally();
   }
 

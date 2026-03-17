@@ -16,17 +16,17 @@ export class RoomTile implements OnInit {
 
     @Input( { required: true } ) public roomId!: number;
     public room!: Room;
-
-    public temperature = signal<number>(0);
+    public baseTemperature = signal(23);
+    public temperature = signal(23);
     public divergence = computed(() => this.temperature() - this.baseTemperature());
-    public baseTemperature = signal<number>(0);
   
-    constructor(private buildingSrv: Building) { }
+    constructor(private buildingSrv: Building) { 
+      this.baseTemperature = buildingSrv.baseTemperature;
+      this.temperature.set(this.baseTemperature());
+    }
     
     ngOnInit(): void {
       this.room = this.buildingSrv.getRooms().find(r => r.id === this.roomId)!;
-      this.baseTemperature = this.buildingSrv.baseTemperature;
-      this.temperature.set(this.baseTemperature());
     }
 
     public changeTemperature(delta: number): void {

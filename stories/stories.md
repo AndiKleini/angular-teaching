@@ -50,3 +50,22 @@ The goal is to become confident with the angular framework.
 **Session 3.2 (create alarm buttons in room tiles)**
 
 - create an activate/deactivate alarm button in the room-tile. Whenever this button is clicked the alarm is toggled. The state needs to be propagated to the main component which already has this alarm toggle capabilities.
+
+## Session 4 state with signal
+
+**Preparations**
+For the following preparations you can compare [modified room-tile.ts](./#4_hard_coded_heat_control_4_room_tile.md) and [modified home.ts](./#4hard_coded_heat_control_4_home.md)
+- Remove the thermostat implementation in [room-tile.ts](../src/app/room-tile/room-tile.ts) and in [home.ts](../src/app/home/home.ts). 
+- Substitute the the htlm blocks for the heat control in [room-tile.html](../src/app/room-tile/room-tile.html) and [home.html](../src/app/home/home.html) 
+
+### Session 4.1 (implement heat control for room-tile component)
+
+- Create signals for baseTemperature, temperature and divergence as properties of [room-tile.ts](../src/app/room-tile/room-tile.ts) and bind the control properly. Use hard coded value for baseTemperature.
+- Implement changeTemperatur methods so that the temperature is modified
+- Set baseTemeperature from the building service.
+- compute divergence out of baseTemperature and temperature (computed())
+
+### Session 4.2 (implement heat control for home component)
+
+- Retrieve the baseTemperatur from the builderService signal in [home.ts](../src/app/room-tile/home.ts)
+- implement changeTemperature functions
