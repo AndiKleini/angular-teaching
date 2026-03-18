@@ -1,6 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { Room } from '../entities/room';
 
+const BASE_TEMPERATURE = 23.0;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,5 +15,6 @@ export class Building {
     ];
   }
 
-  public baseTemperature = signal<number>(23.0);
+  public baseTemperature = signal<number>(BASE_TEMPERATURE);
+
 }
