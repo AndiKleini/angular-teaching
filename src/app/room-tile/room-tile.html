@@ -17,4 +17,15 @@
             </div>
         </div>
     </div>
+    <section class="events-log">
+        <h2>Letzte Ereignisse</h2>
+        <ul>
+        @for( event of (houseEvents | async); track event.timestamp) {
+            <li class="event-item">
+                <span class="time">{{event.timestamp | getTime }}</span>
+                <span class="message">{{event.message}}</span>
+            </li>
+        }
+        </ul>
+    </section>
 </div>

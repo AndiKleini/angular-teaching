@@ -19,13 +19,24 @@
                 </div>
             </div>
         </div>
+        <div>
+             <section class="events-log">
+        <h2>Letzte Ereignisse</h2>
+        <ul>
+        @for( event of (houseEvents | async); track event.timestamp) {
+            <li class="event-item">
+                <span class="time">{{event.timestamp | getTime }}</span>
+                <span class="message">{{event.message}}</span>
+            </li>
+        }
+        </ul>
+    </section>
+        </div>
     </div>
     <h2 style="margin-bottom: 1rem; color: #2c3e50;">Your Rooms</h2>
     <div class="room-grid">
-
         @for(room of rooms; track $index) {
             <app-room-tile [roomId]="room.id" (toggleAlarm)="toggleAlarm($event)"></app-room-tile>
         }
-
     </div>
 </main>

@@ -329,3 +329,28 @@ main {
 .heating { color: #e67e22; }
 .target-control { margin-top: 15px; display: flex; gap: 10px; align-items: center; }
 button { border: none; background: #34495e; color: white; border-radius: 5px; padding: 5px 10px; cursor: pointer; }
+
+.events-log {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.event-item {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    display: flex;
+}
+
+.event-item:last-child { border: none; }
+
+.time {
+    color: var(--accent-color);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.warning .message {
+    color: var(--warning-color);
+}
