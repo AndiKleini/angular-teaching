@@ -1,10 +1,8 @@
 import { Component, computed, signal } from '@angular/core';
 import { Building } from '../services/building';
 import { Room } from '../entities/room';
-import { ListDevicesPipe } from '../pipes/list-devices';
 import { RoomTile } from "../room-tile/room-tile";
 import { AsyncPipe, NgClass } from "@angular/common";
-import { sign } from 'node:crypto';
 import { GetTimePipe } from "../pipes/get-time";
 import { map, Observable, scan } from 'rxjs';
 import { HouseEvent } from '../entities/house-event';

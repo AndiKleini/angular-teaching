@@ -4,7 +4,7 @@ import { Room } from '../entities/room';
 import { ListDevicesPipe } from '../pipes/list-devices';
 import { OnInit } from '@angular/core';
 import { HouseEvent } from '../entities/house-event';
-import { map, Observable, scan } from 'rxjs';
+import { map, Observable, of, scan } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { GetTimePipe } from "../pipes/get-time";
 

@@ -69,3 +69,17 @@ For the following preparations you can compare [modified room-tile.ts](./#4_hard
 
 - Retrieve the baseTemperatur from the builderService signal in [home.ts](../src/app/room-tile/home.ts)
 - implement changeTemperature functions
+
+## Session 5 (rxjs)
+
+**Preparations**
+- Break the dynamic loading of the house events on the home component and room-tiles control (compare [here](./#5_rxjspipe_for_displaying_latest_house_events.md)).
+
+### Session 5.1
+- implement displaying the latest 5 house events in home component
+### Session 5.2
+- implement displaying the latest 3 house events in room-tile component
+
+
+
+
