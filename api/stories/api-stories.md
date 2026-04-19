@@ -1,0 +1,14 @@
+# API-1 session add UserController
+
+**Preparation**
+Prepare the session 1 by modification of the application following [this](#api-1-session-add-usercontroller);
+
+**API session 1**
+- Create UserController
+- Create GetMapping in UserController
+- Implement Error code 404
+- Create UserService
+- Move the logic of the get method to the service
+- Implement create user with Post mapping and creation method in UserService
+- Implement update user with Put mapping and update method in UserService
+- Implement delete user with Delete mapping and delete method in UserService

@@ -1,0 +1,6 @@
+# Session 1 add_user_Controller
+
+## Preparation
+- Remove the [UserService](../src/main/java/at/smarthome/service/UserService.java).
+- Remove the [UserController](../src/main/java/at/smarthome/controller/UserController.java)
+- Remote DTO [User](../src/main/java/at/smarthome/service/User.java)
