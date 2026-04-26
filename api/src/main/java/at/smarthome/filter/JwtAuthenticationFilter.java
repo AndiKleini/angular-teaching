@@ -45,16 +45,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         jwt = authHeader.substring(7);
 
-        if (this.authService.validate(jwt)) {
-            this.log.info("JwtAuthenticationFilter: Invalid JWT token");
+        Long userId = this.authService.validate(jwt);
+        if (userId != 0L) {
+             this.log.info("JwtAuthenticationFilter: Valid JWT token found, setting authentication context");
              UsernamePasswordAuthenticationToken authToken = 
                 new UsernamePasswordAuthenticationToken(
-                        124, null, List.of(() -> "ROLE_USER"));
+                        userId, null, List.of(() -> "ROLE_USER"));
             authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authToken);
-        };
+        } else {
+            this.log.info("JwtAuthenticationFilter: No Valid JWT token found");
+        }
       
-        this.log.info("JwtAuthenticationFilter: Valid JWT token found, setting authentication context");
-        filterChain.doFilter(request, response);
+       filterChain.doFilter(request, response);
     }
 }

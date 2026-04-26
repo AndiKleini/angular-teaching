@@ -1,0 +1,6 @@
+# Disable Securiyt Configuration
+
+In order making things easier for demnonstration and considering the fact that the security is learned later, you can disable the whole Security configuration by:
+
+- Commenting out the annotations of [SecurityConfiguration](../src/main/java/at/smarthome/config/SecurityConfig.java). This way the api will run without any security.
+- Adding attribute @SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) to [SmartHomeApplication](../src/main/java/at/smarthome/SmartHomeApplication.java), which will prevent the framework from applying basic authentication as default.

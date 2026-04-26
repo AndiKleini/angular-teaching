@@ -4,3 +4,7 @@
 - Remove the [UserService](../src/main/java/at/smarthome/service/UserService.java).
 - Remove the [UserController](../src/main/java/at/smarthome/controller/UserController.java)
 - Remote DTO [User](../src/main/java/at/smarthome/service/User.java)
+
+## Hint
+You can crete a new version of the [UserController](../src/main/java/at/smarthome/controller/UserController.java) without making use of the security context. 
+

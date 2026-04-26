@@ -20,12 +20,12 @@ public class AuthenticationService {
             .sign(Algorithm.HMAC256("this_is_a_secret_key"));
     }
 
-    public boolean validate(String token) {
+    public Long validate(String token) {
         try {
             JWT.require(Algorithm.HMAC256("this_is_a_secret_key")).build().verify(token);
-            return true;
+            return Long.parseLong(JWT.decode(token).getSubject());
         } catch (Exception e) {
-            return false;
+            return 0L;
         }
     }
 
