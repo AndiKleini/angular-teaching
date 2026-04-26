@@ -28,11 +28,11 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<User> getUser(@RequestParam(value = "id", defaultValue = "0") Integer id) {
+    public ResponseEntity<User> getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(auth.getName());
-        this.log.info("UserController: getUser called for userId " + userId + " and requested id " + id);
-        User user = userService.getUser(id);
+        log.info("UserController: getUser called for userId " + userId + " and requested id " + id);
+        User user = userService.getUser(userId);
         if (user == null) {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         } else {
@@ -47,7 +47,7 @@ public class UserController {
 
     @DeleteMapping("/user")
     public ResponseEntity<Void> deleteUser(
-        @RequestParam(value = "id", defaultValue = "0") Integer id) {
+        @RequestParam(value = "id", defaultValue = "0") Long id) {
         boolean success = this.userService.deleteUser(id);
         if (success) {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

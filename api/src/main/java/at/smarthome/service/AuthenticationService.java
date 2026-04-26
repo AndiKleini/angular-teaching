@@ -20,7 +20,7 @@ public class AuthenticationService {
         this.userService = userService;
     }
 
-    public String issue(long userId) {
+    public String issue(Long userId) {
         if (userId == 0L) {
             return null;
         }
@@ -40,7 +40,7 @@ public class AuthenticationService {
         }
     }
 
-    public long authenticate(String username, String password) {
+    public Long authenticate(String username, String password) {
         return userService.lookUpUser(username, password);
     }
 }

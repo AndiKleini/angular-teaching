@@ -6,12 +6,12 @@ public class User {
         return name;
     }
 
-    private Integer id = 0;
-    public Integer getId() {
+    private Long id = 0L;
+    public Long getId() {
         return id;
     }
 
-    public User(Integer id, String name) {
+    public User(Long id, String name) {
         this.id = id;
         this.name = name;
     }
