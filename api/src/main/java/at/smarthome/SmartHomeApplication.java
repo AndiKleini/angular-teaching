@@ -3,15 +3,15 @@ package at.smarthome;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import at.smarthome.service.GreeterService;
 
-@SpringBootApplication
-//@ComponentScan(basePackages = {"at.fhtw.bic.hellospring", "at.fhtw.bic.hellospring.service", "at.fhtw.bic.hellospring.service.impl" , "at.fhtw.bic.hellospring.config"})
 @RestController
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class SmartHomeApplication {
 
 	private final GreeterService greeterService;
