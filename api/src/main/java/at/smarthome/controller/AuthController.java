@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import at.smarthome.service.AuthenticationService;
+import at.smarthome.service.IAuthenticationService;
 import at.smarthome.service.LoginRequest;
 import at.smarthome.service.LoginResponse;
 
 @RestController 
 public class AuthController {
 
-    private AuthenticationService authService;
+    private IAuthenticationService authService;
 
     @Autowired
-    public AuthController(AuthenticationService authService) {
+    public AuthController(IAuthenticationService authService) {
         this.authService = authService;
     }
-    
+
     @PostMapping("/auth")
     public ResponseEntity<LoginResponse> login(@RequestBody @Validated LoginRequest request) {
         long userId = this.authService.authenticate(request.getUsername(), request.getPassword());

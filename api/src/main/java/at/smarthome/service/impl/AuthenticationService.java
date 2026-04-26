@@ -1,4 +1,4 @@
-package at.smarthome.service;
+package at.smarthome.service.impl;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
+import at.smarthome.service.IAuthenticationService;
+
 @Service
-public class AuthenticationService {
+public class AuthenticationService implements IAuthenticationService {
 
     private UserService userService;
 
@@ -20,6 +22,7 @@ public class AuthenticationService {
         this.userService = userService;
     }
 
+    @Override
     public String issue(Long userId) {
         if (userId == 0L) {
             return null;
@@ -31,6 +34,7 @@ public class AuthenticationService {
             .sign(Algorithm.HMAC256("this_is_a_secret_key"));
     }
 
+    @Override
     public Long validate(String token) {
         try {
             JWT.require(Algorithm.HMAC256("this_is_a_secret_key")).build().verify(token);
@@ -40,6 +44,7 @@ public class AuthenticationService {
         }
     }
 
+    @Override
     public Long authenticate(String username, String password) {
         return userService.lookUpUser(username, password);
     }

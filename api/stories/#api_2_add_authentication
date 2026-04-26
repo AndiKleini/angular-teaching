@@ -1,0 +1,28 @@
+# Session 2 add_authentication
+
+**Preparation**
+- remove implementation of [IAuthenticationService](../src/main/java/at/smarthome/service/IAuthenticationService.java) in [AuthenticationService](../src/main/java/at/smarthome/service/impl/AuthenticationService.java)
+- remove [JwtAuthenticationFilter](../src/main/java/at/smarthome/filter/JwtAuthenticationFilter.java) completely or just some code fragments depending on the desired complexity for the lecture.
+- remove activation of [JwtAuthenticationFilter](../src/main/java/at/smarthome/filter/JwtAuthenticationFilter.java) in [SecurityConfiguration](../src/main/java/at/smarthome/config/SecurityConfig.java) by removing corresponding addFilterBefore call
+
+```Java
+@Bean
+public SecurityFilterChain applicationSecurity(HttpSecurity http) throws Exception {
+    http
+    .csrf(csrf -> csrf.disable())
+    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and())
+    .formLogin(form -> form.disable())
+    .securityMatcher("/**")
+    .authorizeHttpRequests(auth -> auth
+        .requestMatchers("/auth").permitAll()
+        .requestMatchers(HttpMethod.POST, "/user").permitAll()
+        .anyRequest().authenticated()
+    )
+    .addFilterBefore(jwtAuthFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
+
+    return http.build();
+}
+```
+
+
+

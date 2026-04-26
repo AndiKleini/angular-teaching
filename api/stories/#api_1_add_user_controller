@@ -7,4 +7,3 @@
 
 ## Hint
 You can crete a new version of the [UserController](../src/main/java/at/smarthome/controller/UserController.java) without making use of the security context. 
-

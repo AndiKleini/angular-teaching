@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import at.smarthome.service.IUserService;
 import at.smarthome.service.User;
-import at.smarthome.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
 public class UserController {
 
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired
-    public UserController(UserService  userService) {
+    public UserController(IUserService  userService) {
         this.userService = userService; 
     }
 
