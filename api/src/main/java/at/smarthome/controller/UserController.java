@@ -31,7 +31,7 @@ public class UserController {
     public ResponseEntity<User> getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(auth.getName());
-        log.info("UserController: getUser called for userId " + userId + " and requested id " + id);
+        log.info("UserController: getUser called for userId " + userId + " and requested id ");
         User user = userService.getUser(userId);
         if (user == null) {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
