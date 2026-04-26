@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -12,7 +13,17 @@ import com.auth0.jwt.algorithms.Algorithm;
 @Service
 public class AuthenticationService {
 
+    private UserService userService;
+
+    @Autowired
+    public AuthenticationService(UserService userService) {
+        this.userService = userService;
+    }
+
     public String issue(long userId) {
+        if (userId == 0L) {
+            return null;
+        }
         return JWT.create()
             .withSubject(String.valueOf(userId))
             .withExpiresAt(Instant.now().plus(Duration.of(1, java.time.temporal.ChronoUnit.HOURS)))
@@ -30,6 +41,6 @@ public class AuthenticationService {
     }
 
     public long authenticate(String username, String password) {
-        return 1227;
+        return userService.lookUpUser(username, password);
     }
 }
