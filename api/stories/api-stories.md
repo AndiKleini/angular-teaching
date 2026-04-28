@@ -16,7 +16,7 @@ Prepare the session 1 by modification of the application following [this](#api-1
 # API-2 session implement authentication
 
 **Preparation**
-Prepare the session by modification of the application following [this].
+Prepare the session by modification of the application following [this](./#api_2_add_authentication).
 
 **API session 2**
 Implement the afore removed methods.
@@ -25,6 +25,10 @@ Implement the afore removed methods.
 
 **Preparation**
  - remove implementation of method authenticate and createCredentials from [IAuthenticationService](../src/main/java/at/smarthome/service/IAuthenticationService.java) in [AuthenticationService](../src/main/java/at/smarthome/service/impl/AuthenticationService.java). Substitute the code with throwing a NotImplementedException.
+ - you can launch a proper postgres instance with 
+ ```sh
+docker run -p 5000:5432 --name swen2-db -e POSTGRES_PASSWORD=mysecret-d postgres 
+ ```
 
 **API session 3**
 - Implement the afore removed methods

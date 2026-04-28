@@ -1,0 +1,8 @@
+# Session 2 add_authentication
+
+**Preparation**
+ - remove implementation of method authenticate and createCredentials from [IAuthenticationService](../src/main/java/at/smarthome/service/IAuthenticationService.java) in [AuthenticationService](../src/main/java/at/smarthome/service/impl/AuthenticationService.java). Substitute the code with throwing a NotImplementedException.
+ - you can launch a proper postgres instance with 
+ ```sh
+docker run -p 5000:5432 --name swen2-db -e POSTGRES_PASSWORD=mysecret-d postgres 
+ ```
