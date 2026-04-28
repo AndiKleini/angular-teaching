@@ -19,4 +19,12 @@ Prepare the session 1 by modification of the application following [this](#api-1
 Prepare the session by modification of the application following [this].
 
 **API session 2**
-- remove implementation of [IAuthenticationService](../src/main/java/at/smarthome/service/IAuthenticationService.java) in [AuthenticationService](../src/main/java/at/smarthome/service/impl/AuthenticationService.java).
+Implement the afore removed methods.
+
+# API-3 session load password from database
+
+**Preparation**
+ - remove implementation of method authenticate and createCredentials from [IAuthenticationService](../src/main/java/at/smarthome/service/IAuthenticationService.java) in [AuthenticationService](../src/main/java/at/smarthome/service/impl/AuthenticationService.java). Substitute the code with throwing a NotImplementedException.
+
+**API session 3**
+- Implement the afore removed methods

@@ -8,6 +8,6 @@ public interface IUserService {
 
     boolean deleteUser(Long id);
 
-    Long lookUpUser(String username, String password);
+    Long lookUpUser(String username);
 
 }

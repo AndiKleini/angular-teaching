@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import at.smarthome.service.IUserService;
 import at.smarthome.service.User;
+import at.smarthome.service.impl.AuthenticationService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -21,10 +22,12 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 
     private IUserService userService;
+    private AuthenticationService authService;
 
     @Autowired
-    public UserController(IUserService  userService) {
-        this.userService = userService; 
+    public UserController(IUserService  userService, AuthenticationService authService) {
+        this.userService = userService;
+        this.authService = authService;
     }
 
     @GetMapping("/user")
@@ -41,8 +44,9 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User createUser(@RequestBody User name) {
-        return this.userService.createUser(name);
+    public User createUser(@RequestBody User user) {
+        this.authService.createCredentials(user.getName(), user.getPassword());
+        return this.userService.createUser(user);
     }
 
     @DeleteMapping("/user")

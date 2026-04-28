@@ -35,9 +35,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Long lookUpUser(String username, String password) {
-        // In a real application, you would look up the user in the database and check  the password hash. Here we just check if the username is "user" and the password is "password".
-        User tmp = users.stream().filter(u -> u.getName().equals(username)).findFirst().orElse(null);
+    public Long lookUpUser(String username) {
+       User tmp = users.stream().filter(u -> u.getName().equals(username)).findFirst().orElse(null);
         return tmp != null ? tmp.getId() : 0L;
     }
 }
