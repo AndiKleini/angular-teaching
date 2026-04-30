@@ -14,4 +14,6 @@ public class LoginResponse {
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
     }
+
+    public LoginResponse() { }
 }
