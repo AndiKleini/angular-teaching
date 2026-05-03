@@ -67,5 +67,6 @@ public class UserControllerTests {
 				.expectBody(LoginResponse.class).returnResult().getResponseBody();
 		Assertions.assertThat(loginResponse).isNotNull();
 		Assertions.assertThat(loginResponse.getAccessToken()).isNotNull();
+		Assertions.assertThat(loginResponse.getFact()).isNotBlank();
 	}
 }
