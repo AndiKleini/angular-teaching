@@ -57,3 +57,9 @@ baseline.json
 
 # pnpm store
 .pnpm-store
+
+# ignore Claude.md, which contains conversations with the Claude AI assistant and may contain sensitive information.
+CLAUDE.md
+
+#ignore CLAUDE files
+CLAUDE-*.md
