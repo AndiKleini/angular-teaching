@@ -1,5 +1,7 @@
 package at.smarthome.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,10 +33,33 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<User> getUser() {
+    public ResponseEntity<List<User>> searchUsers(
+        @RequestParam(value = "q", required = false) String q,
+        @RequestParam(value = "threshold", required = false) Long threshold) {
+        log.info("UserController: searchUsers called with q=" + q + ", threshold=" + threshold);
+        List<User> result;
+        if (q != null && threshold != null) {
+            java.util.Set<String> namesAboveThreshold = this.userService.searchByIdGreaterThan(threshold).stream()
+                .map(User::getName)
+                .collect(java.util.stream.Collectors.toSet());
+            result = this.userService.searchByUsername(q).stream()
+                .filter(u -> namesAboveThreshold.contains(u.getName()))
+                .toList();
+        } else if (q != null) {
+            result = this.userService.searchByUsername(q);
+        } else if (threshold != null) {
+            result = this.userService.searchByIdGreaterThan(threshold);
+        } else {
+            result = this.userService.searchByUsername("");
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("/user/me")
+    public ResponseEntity<User> getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(auth.getName());
-        log.info("UserController: getUser called for userId " + userId + " and requested id ");
+        log.info("UserController: getCurrentUser called for userId " + userId);
         User user = userService.getUser(userId);
         if (user == null) {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
